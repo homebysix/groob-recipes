@@ -1,13 +1,17 @@
 #!/usr/bin/env python
 #
 from __future__ import absolute_import
+
 import re
-import urllib
 import urllib2
 import urlparse
 
 from autopkglib import Processor, ProcessorError
 
+try:
+    from urllib import request as urllib  # For Python 3
+except ImportError:
+    import urllib  # For Python 2
 
 __all__ = ["MakerBotURLProvider"]
 
@@ -54,7 +58,7 @@ class MakerBotURLProvider(Processor):
         url = url_bits.scheme + "://" + url_bits.netloc + encoded_path
         if not m:
           raise ProcessorError(
-              "error Couldn't find %s download URL in %s" 
+              "error Couldn't find %s download URL in %s"
               % (base_url))
 
         return url
@@ -68,5 +72,3 @@ class MakerBotURLProvider(Processor):
 if __name__ == "__main__":
   processor = MakerBotURLProvider()
   processor.execute_shell()
-
-
