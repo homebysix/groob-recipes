@@ -16,12 +16,12 @@
 """See docstring for MakerBotPkgFinder class"""
 
 from __future__ import absolute_import
-import os
+
 import glob
+import os
 
-from autopkglib.DmgMounter import DmgMounter
 from autopkglib import ProcessorError
-
+from autopkglib.DmgMounter import DmgMounter
 
 __all__ = ["MakerBotPkgFinder"]
 
