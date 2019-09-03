@@ -46,7 +46,7 @@ class MakerBotURLProvider(Processor):
           f = urllib2.urlopen(req)
           html = f.read()
           f.close()
-        except BaseException as e:
+        except Exception as e:
           raise ProcessorError("Can't download %s: %s" % (base_url, e))
 
         # Search for download link.

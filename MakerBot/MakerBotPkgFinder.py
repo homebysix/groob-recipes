@@ -60,7 +60,7 @@ class MakerBotPkgFinder(DmgMounter):
         try:
             self.env["makerbot_pkg"] = self.find_match(mount_point, CORE)
             self.output("Found %s" % self.env["makerbot_pkg"])
-        except BaseException as err:
+        except Exception as err:
             raise ProcessorError(err)
         finally:
             self.unmount(self.env["dmg_path"])
